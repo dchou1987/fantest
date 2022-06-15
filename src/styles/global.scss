@@ -1,0 +1,44 @@
+* {
+  font-family: $Basetica;
+}
+
+i {
+  font-family: $WulkanItalic;
+}
+
+h1 {
+  font-family: $Wulkan;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 65px;
+  line-height: 65px;
+  white-space: nowrap;
+
+  text-align: center;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+p {
+  font-family: $BaseticaLight;
+  color: black;
+  font-size: 18px;
+  letter-spacing: 0.07em;
+  line-height: 33px;
+}
+
+.cursor {
+  pointer-events: none;
+
+  &__ball {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    opacity: 0.5;
+
+    circle {
+      fill: #fff;
+    }
+  }
+}
