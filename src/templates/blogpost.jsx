@@ -7,6 +7,7 @@ import Moment from 'react-moment'
 
 
 const BlogPost = ({ pageContext: { data, posts, category } }) => {
+  console.log("dattt", data.bulletedSummaryContent)
   // const allPosts = posts.filter(item => item.title !== data.title)
   // const shareUrl = `https://techlovers.netlify.app/${category}/${data.slug}`;
   return <Layout>
@@ -16,9 +17,11 @@ const BlogPost = ({ pageContext: { data, posts, category } }) => {
           <div className="news-header">
             <div className="news-header-content">
               <h1 className="news-title">{data.title}</h1>
-              <Moment format="MMM DD, YYYY">{data.publishedAt}</Moment>
 
               {/* <div>May 1, 2022</div> */}
+              <div>
+              <Moment format="MMM DD, YYYY">{data.publishedAt}</Moment>
+              </div>
             </div>
             <div className="news-gradient" />
             <img srcSet={`

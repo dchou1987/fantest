@@ -24,29 +24,62 @@ const News = () => {
               tags
               date
               seo {
+                 title
+                 description
+                 keywords
+                }
+            }
+
+            featured:news(orderBy: date_DESC, where: {feature: true}, first: 1) {
+              title
+              featuredPhoto {
+              url
+              }
+              feature
+              publishedAt
+              slug
+              tags
+              date
+              seo {
           title
           description
           keywords
-        }
-            }
+          }
+           }
+           
           }
 }
 `)
+
+console.log("")
   return (
     <Layout>
       <div className="spacer"></div>
       <section id="about-us" className="section">
-        {newsItems.graphCmsData.news.map(post => (
-        post.feature ?
-        <div className="featured-news-item">
-          <div className="featured-news-left">
-          <Moment format="MMM DD, YYYY">{post.date}</Moment>
-            <Link to ={`/news/${post.slug}`} className="featured-news-title">{post.title}</Link>
+        {newsItems.graphCmsData.featured.map(post => (
+          <div className="featured-news-item">
+            <div className="featured-news-left">
+              <div>
+                <Moment format="MMM DD, YYYY">{post.date}</Moment>
+              </div>
+              <Link to={`/news/${post.slug}`} className="featured-news-title">{post.title}</Link>
+            </div>
+            <Link to={`/news/${post.slug}`} className="featured-news-right w-inline-block"><img loading="lazy" sizes="(max-width: 479px) 88vw, 50vw" src={post.featuredPhoto.url} alt="" className="featured-news-image" /></Link>
           </div>
-          <Link to ={`/news/${post.slug}`} className="featured-news-right w-inline-block"><img loading="lazy" sizes="(max-width: 479px) 88vw, 50vw" src={post.featuredPhoto.url} alt="" className="featured-news-image" /></Link>
-        </div>
-        : null
         ))}
+        {/* {newsItems.graphCmsData.news.map(post => (
+          post.feature ?
+            <div className="featured-news-item">
+              <div className="featured-news-left">
+                <div>
+                  <Moment format="MMM DD, YYYY">{post.date}</Moment>
+                </div>
+                <Link to={`/news/${post.slug}`} className="featured-news-title">{post.title}</Link>
+              </div>
+              <Link to={`/news/${post.slug}`} className="featured-news-right w-inline-block"><img loading="lazy" sizes="(max-width: 479px) 88vw, 50vw" src={post.featuredPhoto.url} alt="" className="featured-news-image" /></Link>
+            </div>
+            : null
+        ))} */}
       </section>
 
       <section id="about-us" className="section">
@@ -58,11 +91,13 @@ const News = () => {
             <div className="news-grid">
               {newsItems.graphCmsData.news.map(post => (
                 <div id="w-node-_675be6ae-374e-1122-ccff-a7549f02f416-74c3e019" className="news-item">
-                  {post.featuredPhoto && <Link to ={`/news/${post.slug}`} className="news-item-link w-inline-block"><img src={post.featuredPhoto.url} loading="lazy" alt="" className="news-item-image" /></Link>}
+                  {post.featuredPhoto && <Link to={`/news/${post.slug}`} className="news-item-link w-inline-block"><img src={post.featuredPhoto.url} loading="lazy" alt="" className="news-item-image" /></Link>}
                   <div id="w-node-_8678e719-1dbf-e63f-58a7-43b186934cdf-74c3e019">
                     <Link id="w-node-_8678e719-1dbf-e63f-58a7-43b186934ce0-74c3e019" to={`/news/${post.slug}`} className="news-item-title">{post.title}</Link>
-                    <Moment format="MMM DD, YYYY">{post.date}</Moment>
                     {/* <div>June 1, 2022</div> */}
+                    <div>
+                      <Moment format="MMM DD, YYYY">{post.date}</Moment>
+                    </div>
                   </div>
                 </div>
 
