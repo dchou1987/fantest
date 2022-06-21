@@ -23,7 +23,7 @@ export default class HTML extends React.Component {
                     />
                     {this.props.postBodyComponents}
                     <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=628330b04bd59fd2ec54e6ca" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossOrigin="anonymous"></script>
-                    <script src="/assets/js/algofan.js" type="text/javascript" crossOrigin="anonymous"></script>
+                    {/* <script src="/assets/js/algofan.js" type="text/javascript" crossOrigin="anonymous"></script> */}
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
                     <script
                           dangerouslySetInnerHTML={{

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Header from "../components/Layout/Header"
 
 import Footer from "../components/Layout/Footer"
@@ -9,7 +9,6 @@ import HomeMission from "../components/HomeMission"
 import Layout from "../components/Layout"
 
 export default function PageIndex() {
-
 
   return (
     <Layout>

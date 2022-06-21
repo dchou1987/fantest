@@ -1,10 +1,50 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 const HomeMission = () => {
+
+  const scrollProgressBar = () => {
+    const progressBarDown = document.getElementById('mission-bar-down');
+    const progressBarTop = document.getElementById('mission-bar-top');
+
+    const section = document.getElementById('mission');
+
+    let scrollBottom = (section.getBoundingClientRect().bottom);
+    let scrollTop = (section.getBoundingClientRect().top);
+
+    let percentageBottom =
+    (scrollBottom /
+    (section.getBoundingClientRect().height - 
+    document.documentElement.clientHeight)) * 100;
+
+    let percentageTop =
+    (scrollTop /
+    (section.getBoundingClientRect().height - 
+    document.documentElement.clientHeight)) * 100;
+    
+    let bottom = Math.floor(percentageBottom) - 50;
+    let top = Math.floor(percentageTop) - 50;
+  
+    progressBarDown.style.width = bottom + '%';
+
+    if (bottom > 100) {
+        progressBarDown.style.width = '100%';
+    }
+
+    progressBarTop.style.width = top + '%';
+
+    if (top > 100) {
+        progressBarTop.style.width = '100%';
+    }
+};
+
+  useEffect(() => {
+    document.addEventListener('scroll', scrollProgressBar);
+
+  }, [])
   return (
     <section id="mission" className="section is--trophy-bg">
         <div className="left-fill">
-          <div data-w-id="c46adab3-ff1e-8f62-4d2b-ad06a140af68" className="gold-bar" />
+          <div data-w-id="c46adab3-ff1e-8f62-4d2b-ad06a140af68" className="gold-bar" id='mission-bar-top' />
         </div>
         <div className="container is--centered is--grey-bg">
           <div className="gold-border is--centered">
@@ -21,7 +61,7 @@ const HomeMission = () => {
           </div>
         </div>
         <div className="right-fill">
-          <div data-w-id="0afbd863-11a6-a83c-5301-6e995e92047d" className="gold-bar" />
+          <div data-w-id="0afbd863-11a6-a83c-5301-6e995e92047d" id='mission-bar-down' className="gold-bar" />
         </div>
       </section>
   )
