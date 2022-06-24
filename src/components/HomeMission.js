@@ -26,6 +26,8 @@ const HomeMission = () => {
   
     progressBarDown.style.width = bottom + '%';
 
+    // console.log("progressBarTop", top)
+    // console.log("progressBarDown", bottom)
     if (bottom > 100) {
         progressBarDown.style.width = '100%';
     }

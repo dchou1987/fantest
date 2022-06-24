@@ -13,7 +13,7 @@ const News = () => {
   const newsItems = useStaticQuery(graphql`
   {
     graphCmsData  {
-          news {
+          news(orderBy: date_DESC) {
               title
               featuredPhoto {
               url
